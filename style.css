@@ -1,27 +1,35 @@
 body {
-    background: rgb(125, 198, 205);
-    color: rgb(45, 45, 45);
+    background-image: linear-gradient(to top right , rgb(56, 31, 31),#444,black);
+    min-height: 100vh;
+    background-size: cover;
+    color: rgb(255, 255, 255);
     padding: 10px;
     font-family: Arial, sans-serif;
 }
 
 #all-contents {
+    max-height: 40;
     max-width: 800px;
     margin: auto;
 }
 
 /* navigation menu */
 nav {
-    background: rgb(239, 80, 41);
-    margin: 0 auto;
-    display: flex;
+    background: #444;
+    border-radius: 10px;
+    border-style: groove;
+    border-color: rgb(94, 76, 24);
+    border-width: 15px;
     padding: 10px;
-}
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
 
 h1 {
     display: flex;
     align-items: center;
-    color: white;
+    color: rgb(255, 255, 255);
     flex: 1;
     margin: 0;
 }
@@ -34,18 +42,22 @@ h1 {
 }
 
 .nav-li {
-    display: inline-block;
+    display: inline-flex;
     padding: 0 10px;
 }
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
 }
 
 /* main container area beneath menu */
 main {
-    background: rgb(245, 238, 219);
+    background: rgb(94, 76, 24);
+    border-radius: 10px;
+    border-style: groove;
+    border-color: #444;
+    border-width: 15px;
     display: flex;
     margin-top: 20px;
 }
@@ -56,21 +68,105 @@ main {
 }
 
 .sidebar-img {
-    width: 200px;
+    border-radius: 10px;
+    border-style: inset;
+    border-color: #665209;
+    border-width: 3px;
+    width: 400px;
+
 }
 
 .content {
+    border-style: inset;
+    border-radius:3px;
+    border-color: rgb(115, 94, 25);
+    border-width: 5px;
     flex: 1;
     padding: 15px;
 }
 
 /* interests section styles */
 #interests {
-    border: 4px silver ridge;
+    border-style: outset;
+    border-radius:3px;
+    border-color: rgb(115, 94, 25);
+    border-width: 5px;
+    border: 4px rgb(182, 10, 10) ridge;
     padding: 8px;
     margin-top: 20px;
 }
 
 h2, h3 {
     margin: 0px;
+}
+
+/*Portfolio Styles*/
+
+.content h1 {
+    color: black;
+}
+
+#portfolio {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#portfolio li {
+    background: #fff
+    padding: 10px;
+    border-radius: 10px
+    margin-bottom: 10px;
+}
+
+#portfolio li:hover {
+    background: #eee
+}
+
+#portfolio a {
+    text-decoration: none;
+    color: #ffffff
+}
+
+/*Responsive Web Design*/
+
+@media screen and (min-width: 120px) and (max-width: 1080px) {
+    Main{
+        height: 100ch;
+        zoom: 1.5;
+        display: grid;
+    }
+    h1 {
+        font-size: 44px
+    }
+    h2 {
+        font-size: 42px;
+    }
+    h3 {
+        font-size: 36px;
+    }
+    #all-contents {
+        height: 180ch;
+        magin: none;
+    }
+    a {
+        font-size: 42px;
+    }
+    .sidebar {
+        margin-right: 0px;
+        justify-content: center;
+        align-items: center;
+    }
+    .sidebar-img {
+        width: 100%;
+      }
+    
+    p,
+    li {
+        font-size: 24px;
+    }
+    
+    .content {
+        align-content: center;
+        justify-content: center;
+    }
 }
