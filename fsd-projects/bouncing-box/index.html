@@ -5,22 +5,32 @@
 	<meta charset="utf-8">
 	<title>Bouncing Box</title>
 	<script src="jquery.min.js"></script>
+	<link rel="stylesheet" href="bouncingbox.css" />
 	<style>
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-color: #665209;
+			border-width: 20px;
+			border-radius: 20px;
+			border-color: rgb(115, 94, 25);
+			border-style: groove;
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
 			display: block;
 			position: absolute;
-			top: 100px;
+			top: 250px;
 			/* Change me! */
 			left: 0px;
 		}
 
 		.board {
+			background-image: linear-gradient(to top right , rgb(56, 31, 31),#444,black);
+   	 		background-size: cover;
+    		color: rgb(255, 255, 255);
+    		padding: 10px;
+    		font-family: Arial, sans-serif;
 			height: 100vh;
 		}
 	</style>
@@ -46,7 +56,7 @@
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 
 			// Every 50 milliseconds, call the update Function (see below)
-			setInterval(update, 50);
+			setInterval(update, 20);
 
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
@@ -68,8 +78,7 @@
 			// TODO 2 - Variable declarations 
 			var positionX = 0; 
 			var points = 0;
-			var speed = 10
-
+			var speed = 10;
 
 
 			/* 
@@ -100,8 +109,7 @@
 				points = points + 1;
 				changeBoxText (points);
 				speed = 3 * points + 10;
-
-
+				top: boxXCoordiant;
 			};
 
 

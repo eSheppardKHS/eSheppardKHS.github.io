@@ -1,0 +1,9 @@
+.board {
+    background-image: linear-gradient(to top right , rgb(56, 31, 31),#444,black);
+    min-height: 100vh;
+    background-size: cover;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    border-width: 25;
+}
