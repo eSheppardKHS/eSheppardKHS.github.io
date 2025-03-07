@@ -61,8 +61,10 @@
 
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
-			box.off("click",handleMissedClick);
-
+			board.on('click',handleMissedClick);
+			if (good === false) {
+				box.off('click', handleBoxClick);
+			}
 			// moves the Box to a new position on the screen along the X-Axis
 			function moveBoxTo(newPositionX, newPositionY) {
   				box.css("left", newPositionX);
@@ -87,9 +89,16 @@
 			var ranNum = Math.random() * boardWidth;
 			var ranYNum = Math.random() * boardHeight;
 			var fails = 0;
+			var colorStr = "rgb(1,1,1)";
+			var colorStd = "rgb(56, 31, 31)";
+			var good = true;
 			
-			
+			// Function that ends the game.
 
+			function endGame() {
+				clearInterval(interval);
+				good = false
+			}
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
@@ -111,9 +120,7 @@
 				if (positionY < 0){
 					speedY = speedY * -1
 				}
-				function endGame() {
-				clearInterval(interval);
-				}
+				
 				
 				
 
@@ -128,16 +135,29 @@
 				positionX = ranNum;
 				positionY = ranYNum;
 				points = points + 1;
+				fails = fails - points
 				changeBoxText (points);
-				if (points % 3 == 0){
-					speed = 3 * points + 10;
-					speedY = 3 * points + 10;
+				if (points % 3 == 0) {
+					speed = points + 10;
+					speedY = points + 10;
+				}
+				if (points % 2 == 0) {
+					box.css ("background-color", colorStr);
+					box.css ("border-color", colorStd );
+				} else {
+					box.css ("background-color", colorStd);
+					box.css ("border-color", colorStr );
 				}
 		
 			};
 			
 			function handleMissedClick() {
-
+				fails = fails + 1;
+				if (fails === 10) {
+					endGame();
+					alert ("Your Trash! The Goal Was To Click The Box Not The Board. Anyone Can Click The Board!");
+					alert ("To Redeam Your Self, Because You Are Trash, Refresh Your Screen");
+				}
 			}
 
 
